@@ -5,9 +5,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class CreateFile {
-	public boolean createFile(String Source) throws Exception{
-		String command = "touch "+Source;
+public class CreateDir {
+
+	public boolean mkDir(String Source) throws Exception{
+		String command = "mkdir "+Source;
 		try {
 			
 			Process p = Runtime.getRuntime().exec(command);// 启动另一个进程来执行命令  
@@ -25,9 +26,8 @@ public class CreateFile {
          inBr.close();  
          in.close();   
 		} catch (IOException e) {
-			System.out.println(e.toString() +"CreateFile error");
+			System.out.println(e.toString() +"CreateDir error");
 		}
 		return true;
 	}
-
 }

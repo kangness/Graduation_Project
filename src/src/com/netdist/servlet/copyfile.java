@@ -30,6 +30,7 @@ public class copyfile extends HttpServlet {
 	   String Source = null;
 	   String Destination = null;
 	   String org = "/mnt/mfs";
+	   
 	   try {
 		   out = response.getWriter();
 	   } catch (IOException e) {
@@ -44,6 +45,7 @@ public class copyfile extends HttpServlet {
 		   out.println("Source or Destination is Unuseful\n");
 		   return ;
 	   }
+	   
 	   
 	   
    }

@@ -5,9 +5,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class CreateFile {
-	public boolean createFile(String Source) throws Exception{
-		String command = "touch "+Source;
+public class copyDir {
+	
+	public boolean CpDir(String Source,String Destination) throws Exception{
+		String command = "cp -R "+Source+" "+Destination;
 		try {
 			
 			Process p = Runtime.getRuntime().exec(command);// 启动另一个进程来执行命令  
@@ -25,7 +26,7 @@ public class CreateFile {
          inBr.close();  
          in.close();   
 		} catch (IOException e) {
-			System.out.println(e.toString() +"CreateFile error");
+			System.out.println(e.toString() +"copyDir error");
 		}
 		return true;
 	}
