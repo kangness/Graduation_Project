@@ -28,7 +28,7 @@ public class FacebookMe extends ServerResource {
         ClientResource cr = new ClientResource(feedRef);
         Representation rep = cr.get();
         if(cr.getStatus().isSuccess()){
-            JsonRepresentation jrep = new JsonRepresentation(rep);
+        	org.restlet.ext.json.JsonRepresentation jrep = new org.restlet.ext.json.JsonRepresentation(rep);
             return new StringRepresentation(jrep.getJsonObject().toString(2));
         }
         return null;
