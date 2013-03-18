@@ -31,7 +31,7 @@ public class User {
 	}
 
 	public String getUserName() {
-		return UserName;
+		return this.UserName;
 	}
 
 	public void setUserName(String userName) {
@@ -39,7 +39,7 @@ public class User {
 	}
 
 	public String getPassword() {
-		return Password;
+		return this.Password;
 	}
 
 	public void setPassword(String Password){
@@ -48,7 +48,7 @@ public class User {
 
 
 	public String getSex() {
-		return Sex;
+		return this.Sex;
 	}
 
 	public void setSex(String sex) {
@@ -56,38 +56,46 @@ public class User {
 	}
 
 	public String getUserKey() {
-		return UserKey;
+		return this.UserKey;
 	}
 
-	private void getUserInfo(){
-		String sqlcommand = "select * from User where username = \""+this.UserName+"\" and password = \""+this.Password+"\"";
+	public void getUserInfo(){
+		String sqlcommand = "select * from users where name = \""+this.UserName+"\" and password = \""+this.Password+"\"";
 		ResultSet rs = null;
 		rs = conn.SelectCommand(sqlcommand);
 	
 		try {
 			if(rs.next()){
-				this.UserName = rs.getString("UserName");
-				this.Password = rs.getString("Password");
-				this.UserKey = rs.getString("UserKey");
-				this.Sex = rs.getString("Sex");
+				this.UserName = rs.getString("name");
+				this.Password = rs.getString("password");
+				this.UserKey = rs.getString("user_key");
+				this.Sex = rs.getString("sex");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.toString());
+		}finally{
+			if (rs!=null){
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
-	private String makeUserKey(){
+	public String makeUserKey(){
 		String myinfo = null;
-		byte[] temp = null;
+		String temp = null;
 		try {
 			MessageDigest alga = java.security.MessageDigest.getInstance("SHA-1");
 			myinfo = this.getUserName();
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			myinfo += df.format(new Date());
-			System.out.println(myinfo);
 			alga.update(myinfo.getBytes());
-			temp = alga.digest();
+			temp = byte2hex(alga.digest());
 			return temp.toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -96,8 +104,48 @@ public class User {
 		return null;
 	}
 	
-	public void addUserinfo(){
+	public boolean addUserinfo(){
+		String sqlcommand = "insert into users (name,password,sex,user_key) value (\""+this.UserName+"\",\""+this.Password+"\",\""+this.Sex+"\",\"";
+		this.UserKey = makeUserKey();
+		sqlcommand +=this.UserKey+"\")";
+		System.out.println(sqlcommand);
+		if(conn.InsertCommand(sqlcommand)){
+			return true;	
+		}else 
+			return false;
+		
 		
 	}
-
+	
+	public boolean updateUserPassword(){
+		String sqlcommand = "update users set password = \""+this.Password+"\" where name = '"+this.getUserName()+"'";
+		if (conn.UpdateCommand(sqlcommand)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean updateUserSex(){
+		String sqlcommand = "update users set sex = \""+this.Sex+"\" where name = '"+this.getUserName()+"'";
+		if (conn.UpdateCommand(sqlcommand)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public String byte2hex(byte[] b) //二行制转字符串 
+    { 
+     String hs=""; 
+     String stmp=""; 
+     for (int n=0;n<b.length;n++) 
+      { 
+       stmp=(java.lang.Integer.toHexString(b[n] & 0XFF)); 
+       if (stmp.length()==1) hs=hs+"0"+stmp; 
+       else hs=hs+stmp; 
+       if (n<b.length-1)  hs=hs+""; 
+      } 
+     return hs.toUpperCase(); 
+    } 
 }

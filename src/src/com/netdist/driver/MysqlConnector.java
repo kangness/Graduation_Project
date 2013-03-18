@@ -9,9 +9,9 @@ import java.sql.Statement;
 public class MysqlConnector {
 
 	private String driver = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3306/scutcs";
+	private String url = "jdbc:mysql://127.0.0.1:3306/test";
 	private String user = "root";
-	private String password = "root";	
+	private String password = "redhat";
 	private static Connection conn = null;
 	private static Statement statement = null;
 	public MysqlConnector() {
@@ -42,6 +42,29 @@ public class MysqlConnector {
 		
 	}
 	
+	public boolean InsertCommand(String sql){
+		boolean status = false;
+		try{
+		
+			status = statement.execute(sql);
+			status = true;
+		}catch(Exception ex)
+		{
+			System.out.println(ex.toString());
+		}
+		return status;	
+	}
+	
+	public boolean UpdateCommand(String sql){
+		boolean status = false;
+		try{
+			statement.execute(sql);
+			status = true;
+		}catch (Exception ex){
+			System.out.println(ex.toString());
+		}
+		return status;
+	}
 	public void CloseConnection(){
 		try {
 			this.conn.close();
