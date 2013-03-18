@@ -25,5 +25,41 @@
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-codec-1.7-sources.jar"/>
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-codec-1.7-tests.jar"/>
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-codec-1.7-test-sources.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.example.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.atom.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.crypto.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.emf.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.fileupload.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.freemarker.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.gwt.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.html.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.httpclient.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jaas.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jackson.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.javamail.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jaxb.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jaxrs.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jdbc.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jetty.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.jibx.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.json.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.lucene.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.net.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.oauth.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.odata.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.openid.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.rdf.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.rome.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.sdc.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.simple.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.sip.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.slf4j.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.spring.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.ssl.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.velocity.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.wadl.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.xml.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.xstream.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.test.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
