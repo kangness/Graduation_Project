@@ -61,5 +61,13 @@
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.xml.jar"/>
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.ext.xstream.jar"/>
 	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/org.restlet.test.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/jspsmart.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io-2.4-test-sources.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io-2.4-tests.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="/home/kangness/Graduation_Project/src/WebContent/WEB-INF/lib/commons-io.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
