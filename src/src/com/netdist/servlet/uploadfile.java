@@ -20,6 +20,9 @@ import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.netdist.driver.RemoveFile;
+import com.netdist.driver.MoveFile;
+
 
 /**
  * Servlet implementation class uploadfile
@@ -50,6 +53,7 @@ public class uploadfile extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		final long MAX_SIZE = 30*1024*1024;
+	
 		final String[] allowedExt = new String[]{
 				"jpg",
 				"jpeg",
@@ -61,22 +65,33 @@ public class uploadfile extends HttpServlet {
 				"mp4",
 				"mkv"
 		};
+		MoveFile mvfile = new MoveFile();
+		request.setAttribute("SavePath", new String("/test/"));
+		String SavePath = (String) request.getAttribute("SavePath");
+		SavePath = "/mnt/mfs/"+SavePath;
 		response.setContentType("test/html");
 		response.setCharacterEncoding("UTF-8");
+		
 		DiskFileItemFactory dfif = new DiskFileItemFactory();
 		dfif.setSizeThreshold(4096);
+		if(!new File(request.getRealPath("/")+"imagesUploadTemp").isDirectory())   
+	        new File(request.getRealPath("/")+"imagesUploadTemp").mkdirs();
 		dfif.setRepository(new File (request.getRealPath("/")+"imagesUploadTemp"));
 		ServletFileUpload sfu = new ServletFileUpload(dfif);
 		sfu.setSizeMax(MAX_SIZE);
 		PrintWriter out = response.getWriter();
-		List  filelist = null;
+		if(!ServletFileUpload.isMultipartContent(request)){
+			return ;
+		}
+		List<FileItem>  filelist = null;
 		try{
 			filelist = sfu.parseRequest(request);
 		}catch(FileUploadException ex){
-			out.println("upload file error");
+			out.println("upload file error  "+ex.toString());
 		}
 		if (filelist ==null || filelist.size() ==0){
 			out.println("could not find the file ");
+			return;
 		}
 		Iterator fileItr = filelist.iterator();
 		while(fileItr.hasNext()){
@@ -110,13 +125,21 @@ public class uploadfile extends HttpServlet {
 
 	
 			String u_name = request.getRealPath("/") +"imagesUploaded/"+t_name;
+			if(!new File(request.getRealPath("/")+"imagesUploaded").isDirectory())   
+		        new File(request.getRealPath("/")+"imagesUploaded").mkdirs();
 			try{
 				fileItem.write(new File(u_name));
 				out.print("upload file  " + t_name + "  OK size "+size );
 			}
 			catch (Exception ex)
 			{
-				out.println("upload file "+t_name +" Error");
+				out.println("upload file "+t_name +" Error  "+ex.toString());
+			}
+			try {
+				mvfile.MvFile(u_name,SavePath);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
