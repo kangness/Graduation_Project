@@ -77,5 +77,8 @@ public class NetDiskFile {
 	public void setPermission(String permission) {
 		Permission = permission;
 	}
+	public boolean getDirctory(){
+		return this.Dirctory;
+	}
 
 }
