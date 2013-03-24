@@ -22,6 +22,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.netdist.driver.RemoveFile;
 import com.netdist.driver.MoveFile;
+import com.netdist.driver.User;
 
 
 /**
@@ -69,10 +70,27 @@ public class uploadFile extends HttpServlet {
 				"gz"
 		};
 		MoveFile mvfile = new MoveFile();
-		request.setAttribute("SavePath", new String("test/"));
-		String SavePath = (String) request.getAttribute("SavePath");
+		String SavePath = request.getParameter("SavePath");
+		String UserName = (String)request.getAttribute("UserName");
+		   String UserKey = (String)request.getParameter("UserKey");
+		 if (UserKey == null){
+			   
+			   return ;
+		   }
+		   if (UserName == null){
+			   User usr = new User();
+			   if (!usr.getUserInfoByUserKey(UserKey)){
+				
+				   return ;
+			   }else{
+				   UserName = usr.getUserName();
+			   }
+		   }
+		   
+		  
+		
 		//String SavePath = (String) request.getParameter("SavePath");
-		SavePath = "/mnt/mfs/"+SavePath;
+		SavePath = "/mnt/mfs/"+UserName+SavePath;
 		response.setContentType("test/html");
 		response.setCharacterEncoding("UTF-8");
 		

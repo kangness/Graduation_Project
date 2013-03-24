@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.netdist.driver.User;
 import com.netdist.driver.copyFile;
 
 /**
@@ -31,16 +32,32 @@ public class copyFile extends HttpServlet {
 	   PrintWriter out = null;
 	   String Source = null;
 	   String Destination = null;
-	   String org = "/mnt/mfs/test";
-	   copyFile copy = new copyFile();
+	   String UserPath = "";
+	   String UserName = (String)request.getAttribute("UserName");
+	   String UserKey = (String)request.getParameter("UserKey");
 	   try {
 		   out = response.getWriter();
 	   } catch (IOException e) {
 		// TODO Auto-generated catch block
 		   System.out.println(e.toString());
 		   return;
-		
 	   }
+	   if (UserKey == null){
+		   out.println("UserKey not found!!");
+		   return ;
+	   }
+	   if (UserName == null){
+		   User usr = new User();
+		   if (!usr.getUserInfoByUserKey(UserKey)){
+			   out.println("UserKey not found");
+			   return ;
+		   }else{
+			   UserName = usr.getUserName();
+		   }
+	   }
+	   String org = "/mnt/mfs/"+UserName;
+	   copyFile copy = new copyFile();
+	   
 	   request.setAttribute("SourcePath", "/testfile");
 	   request.setAttribute("DestinationPath", "/testfiles");
 	   Source = (String) request.getAttribute("SourcePath");
@@ -61,6 +78,11 @@ public class copyFile extends HttpServlet {
 	   
 	   
    }
+	private void CpFile(String string, String string2) {
+	// TODO Auto-generated method stub
+	
+}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

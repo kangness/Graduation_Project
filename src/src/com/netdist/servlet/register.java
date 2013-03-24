@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.netdist.driver.CreateDir;
 import com.netdist.driver.User;
 
 /**
  * Servlet implementation class register
  */
-@WebServlet("/register")
+@WebServlet("/Register")
 public class register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,6 +31,7 @@ public class register extends HttpServlet {
     	 PrintWriter out ;
     	 String UserName = request.getParameter("UserName");
     	 String Password =  request.getParameter("Password");
+    	 CreateDir cdr = new CreateDir();
     	 System.out.println(UserName  + "    "+Password);
     	 
     	 User usr = new User(UserName,Password);
@@ -44,7 +46,15 @@ public class register extends HttpServlet {
     		 System.out.println(ex.toString());
     		 return;
     	 }
-    	 out.println("OK");
+    	 
+    	 
+    	 try {
+			cdr.mkDir("/mnt/mfs/"+UserName);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			out.println("create home dirctory error");
+		}
+    	out.println("OK");
     	return;
     }
 	/**

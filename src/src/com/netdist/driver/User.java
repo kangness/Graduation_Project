@@ -116,6 +116,38 @@ public class User {
 		return true;
 	}
 	
+	
+	public boolean getUserInfoByUserKey(String userkey){
+		String sqlcommand = "select * from users where user_key = '" + userkey +"'";
+		ResultSet rs = null;
+		rs = conn.SelectCommand(sqlcommand);
+	
+		try {
+			if(rs.next()){
+				this.UserName = rs.getString("name");
+				this.Password = rs.getString("password");
+				this.UserKey = rs.getString("user_key");
+				this.Sex = rs.getString("sex");
+			}else{
+				return false;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.toString());
+			return false;
+		}finally{
+			if (rs!=null){
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return true;
+	}
+	
 	public String makeUserKey(){
 		String myinfo = null;
 		String temp = null;
