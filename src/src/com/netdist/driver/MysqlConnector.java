@@ -62,6 +62,7 @@ public class MysqlConnector {
 			status = true;
 		}catch (Exception ex){
 			System.out.println(ex.toString());
+			return false;
 		}
 		return status;
 	}

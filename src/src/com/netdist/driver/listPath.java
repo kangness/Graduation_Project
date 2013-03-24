@@ -42,7 +42,7 @@ public class listPath {
         	    	Group = temp[2];
         	    	User = temp[3];
         	    	Size = temp[4];
-        	    	CreateDate = temp[5]+temp[6]+temp[7];
+        	    	CreateDate = temp[5]+" "+temp[6]+" "+temp[7];
         	    	Name = temp[8];
         	    	result.add(new NetDiskFile(Name,User,CreateDate,Size,Permission,Dirctory));
         	    }

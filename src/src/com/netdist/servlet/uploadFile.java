@@ -63,11 +63,15 @@ public class uploadFile extends HttpServlet {
 				"mp3",
 				"wma",
 				"mp4",
-				"mkv"
+				"mkv",
+				"pdf",
+				"rar",
+				"gz"
 		};
 		MoveFile mvfile = new MoveFile();
-		request.setAttribute("SavePath", new String("/test/"));
+		request.setAttribute("SavePath", new String("test/"));
 		String SavePath = (String) request.getAttribute("SavePath");
+		//String SavePath = (String) request.getParameter("SavePath");
 		SavePath = "/mnt/mfs/"+SavePath;
 		response.setContentType("test/html");
 		response.setCharacterEncoding("UTF-8");

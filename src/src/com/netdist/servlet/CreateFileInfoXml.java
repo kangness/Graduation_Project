@@ -70,7 +70,7 @@ public static Document generateXml(List<NetDiskFile> list){
   Element element ;
   for (int i = 0; i < len; i++) {
 	  NetDiskFile NetDiskFile = list.get(i);
-	  element = doc.createElement("person"+(i+1));
+	  element = doc.createElement("FileInfo"+(i+1));
 	  element.setAttribute("fileName", ""+NetDiskFile.getName());
 	  element.setAttribute("User", NetDiskFile.getUser());
 	  element.setAttribute("Group", NetDiskFile.getGroup());

@@ -25,8 +25,18 @@ public class User {
 	}
 	
 	public User(String UserName,String Password){
+		MessageDigest alga = null;
+		String temp = null;
+		try {
+			alga = java.security.MessageDigest.getInstance("SHA-1");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		alga.update(Password.getBytes());
+		temp = byte2hex(alga.digest());
+		this.Password = temp;
 		this.UserName = UserName;
-		this.Password = Password;
 		getUserInfo();
 	}
 
@@ -34,16 +44,22 @@ public class User {
 		return this.UserName;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
-	}
-
 	public String getPassword() {
 		return this.Password;
 	}
 
 	public void setPassword(String Password){
-		this.Password = Password;
+		MessageDigest alga = null;
+		String temp = null;
+		try {
+			alga = java.security.MessageDigest.getInstance("SHA-1");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		alga.update(Password.getBytes());
+		temp = byte2hex(alga.digest());
+		this.Password = temp;
 	}
 
 
@@ -52,14 +68,24 @@ public class User {
 	}
 
 	public void setSex(String sex) {
-		Sex = sex;
+		if (sex == null){
+			Sex = "w";
+		}else
+		if(sex.equals("m")||sex.equals("w")){
+			Sex = "w";
+		}else{
+			Sex = sex;
+		}
 	}
 
 	public String getUserKey() {
 		return this.UserKey;
 	}
 
-	public void getUserInfo(){
+	public void setUserName(String UserName){
+		this.UserName = UserName;
+	}
+	public boolean getUserInfo(){
 		String sqlcommand = "select * from users where name = \""+this.UserName+"\" and password = \""+this.Password+"\"";
 		ResultSet rs = null;
 		rs = conn.SelectCommand(sqlcommand);
@@ -70,10 +96,13 @@ public class User {
 				this.Password = rs.getString("password");
 				this.UserKey = rs.getString("user_key");
 				this.Sex = rs.getString("sex");
+			}else{
+				return false;
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.toString());
+			return false;
 		}finally{
 			if (rs!=null){
 				try {
@@ -84,6 +113,7 @@ public class User {
 				}
 			}
 		}
+		return true;
 	}
 	
 	public String makeUserKey(){
