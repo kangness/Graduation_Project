@@ -1,0 +1,1 @@
+http://localhost:8080/NetDisk//oauth2/authorize?client_id=482040646&response_type=code&with_offical_account=1&redirect_uri=http://passport.scau.cn:80/login/kangness.do

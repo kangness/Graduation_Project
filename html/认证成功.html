@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站连接 - Scau开发者</title>
+<link type="text/css" href="/oauth2/css/oauthV3/oauth_web.css" rel="stylesheet" />
+<style>
+	body { padding-bottom:300px; }
+</style>
+</head>
+<body class="WB_UIbody WB_widgets">
+<div class="WB_xline1 oauth_xline" id="outer">
+ <div class="oauth_wrap">
+    <div class="oauth_header clearfix">
+      <h1 class="WB_logo" title="NetDisk"><a href="http://weibo.com">NetDisk</a></h1>
+     	 <p class="login_account"><span class="account_name">kangness</span><span class="vline">|</span><a href="#" action-type="logout">换个帐号</a></p>
+    </div>
+    <!-- 带头像  -->
+    <div class="WB_panel oauth_main">
+      <div class="oauth_content">
+        <div class="oauth_main_content clearfix">
+        	<div class="app_info clearfix">
+        		<div class="app_info_main clearfix">
+	        		<div class="app_intro">
+	        			<h3><a href="http://app.weibo.com/t/feed/M8yRE"  target="_blank">Scau开发者</a></h3>
+	        			<div class="app_des"></div>
+	        		</div>
+        		</div>
+        		<div class="app_info_plus">
+        			<div class="plus_tit">
+        			你网盘里面的内容
+							</div>
+        			<div class="app_user_list">
+        				<ul class="clearfix">
+			              <li><a href="#"><img src="https://upload.api.weibo.com/tp/1774082465/50/5651467247/0" title="蓝蓝白_"></a></li>
+			               	<li><a href="#"><img src="https://upload.api.weibo.com/tp/1810469464/50/5655824686/0" title="小妖精剑玲"></a></li>
+			               	<li><a href="#"><img src="https://upload.api.weibo.com/tp/1772778175/50/5661355925/0" title="Sylvi小花-石中80年"></a></li>
+			               	<li><a href="#"><img src="https://upload.api.weibo.com/tp/2322980041/50/5618555958/0" title="jess小猪"></a></li>
+			               	</ul>
+        			</div>
+				</div>
+        	</div>
+        	<div class="oauth_info clearfix">
+        		<div class="oauth_list">
+        			<div class="list_tit">将允许<a href="http://app.weibo.com/t/feed/M8yRE"  target="_blank">Scau开发者</a>进行以下操作：</div>
+        			<ul class="do_list">
+			            <li>
+			              <i class="icon_user"></i>上传文件到网盘
+			            </li>
+			            <li>
+			              <i class="icon_rss"></i>下载你网盘上面的内容
+			            </li>
+			            <li>
+			              <i class="icon_comm"></i>修改网盘的文件
+			            </li>
+			            <li>
+			              <i class="icon_comm"></i>等等。。。。。。。
+			            </li>
+
+		          </ul>
+        		</div>
+        		</div>
+        </div>
+           <!-- 登录 -->
+        	<div class="oauth_login_box01 clearfix">    	
+	          <form name="authZForm" action="authorize" method="post" node-type="form">
+	          <input type="hidden" id="display" name="display" value="default"/>
+				   <input type="hidden" name="action"  id="action" value="authorize"/>
+				   <input type="hidden" name="scope"  id="scope" value=""/>
+				   <input type="hidden" name="withOfficalFlag"  id="withOfficalFlag" value="0"/>
+				   <input type="hidden" name="withOfficalAccount"  id="withOfficalAccount" value="checked"/>
+				   <input type="hidden" name="ticket" id="ticket" value=""/>
+				   <input type="hidden" name="isLoginSina"  id="isLoginSina" value=""/>
+				   <input type="submit" style="position:absolute; top:-9999px"/>
+				   <input type="hidden" name="response_type" value="code"/>
+				   <input type="hidden" name="regCallback" value="https%3A%2F%2Fapi.weibo.com%2F2%2Foauth2%2Fauthorize%3Fclient_id%3D482040646%26response_type%3Dcode%26display%3Ddefault%26redirect_uri%3Dhttp%3A%2F%2Fpassport.tianya.cn%3A80%2Flogin%2Fsinaweibo.do%26from%3D%26with_cookie%3D"/>	
+	       	       <input type="hidden" name="redirect_uri" value="http://passport.tianya.cn:80/login/sinaweibo.do"/>
+	       	       <input type="hidden" name="client_id" value="482040646"/>
+	       	       <input type="hidden" name="appkey62" value="M8yRE"/>
+	       	       <input type="hidden" name="state" value=""/>
+	       	       <input type="hidden" name="from" value=""/>
+					<input type="hidden" name="uid" value="1834160144"/>
+					<input type="hidden" name="url" id="url" value="https://api.weibo.com/oauth2/authorize?client_id=482040646&response_type=code&with_offical_account=1&redirect_uri=http://passport.tianya.cn:80/login/sinaweibo.do"/>
+					<input type="hidden" name="verifyToken" value="8a2d86add6148c6d0a725eab26fa7752"/>
+					<input type="hidden" name="visible" id="visible" value="0"/>
+				</form>
+            
+          <div class="oauth_login_submit">
+              <p class="oauth_formbtn"><a node-type="submit" action-type="submit"   class="WB_btn_link formbtn_01"></a><a node-type="cancel" action-type="cancel" class="WB_btn_cancel"></a></p>
+          </div>
+        </div>
+        </div>
+        <!-- /登录 --> 
+      </div>
+      <!-- /带头像 -->
+ <input type="submit" name="login"  id="action" value="授权"/>
+    	<p class="oauth_tiptxt">提示：为保障帐号安全，请认准本页URL地址必须以 www.kangness.com 开头</p>
+    </div>
+  </div>
+ 
+<script type="text/javascript" src="/oauth2/js/oauth2Web.js"></script>
+<script type="text/javascript">
+	(function() {
+	if(self !== top) {
+	var img = new Image();
+	var src = 'https://api.weibo.com/oauth2/images/bg_layerr.png?oauth=1&page=web&refer=' + document.referrer + '&rnd=' + (+new Date());
+	img.src = src
+	img = null; //释放局部变量
+	}
+	})();
+</script>
+</body>
+</html>
